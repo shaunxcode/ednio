@@ -13,6 +13,7 @@ ednio.get(":world.animals/cats").done(function(data) {
 });
 ``` 
 
+
 You can pass a second param to get which is an edn path into the form e.g.
 ```
 ednio.get(":world.animals/cats", ":jungle 2 :name").done(function(data) {
