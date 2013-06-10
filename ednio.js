@@ -1433,10 +1433,13 @@ require.register("ednio/index.js", function(exports, require, module){
       _ref = this._kwParts(kw), namespace = _ref.namespace, value = _ref.value;
       return "http://" + (namespace || "www") + ".edn.io/:" + value;
     },
-    get: function(key) {
+    get: function(key, path) {
       return $.ajax({
         type: "GET",
         url: this._kwUrl(key),
+        data: path ? {
+          path: path
+        } : {},
         dataFilter: function(data) {
           return jsedn.parse(data);
         }

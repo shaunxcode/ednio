@@ -14,10 +14,11 @@ module.exports =
         {namespace, value} = @_kwParts kw
         "http://#{namespace or "www"}.edn.io/:#{value}"
             
-    get: (key) -> 
+    get: (key, path) -> 
         $.ajax
             type: "GET"
             url: @_kwUrl key
+            data: if path then {path} else {}
             dataFilter: (data) -> jsedn.parse data 
             
     set: (key, value) -> 

@@ -13,6 +13,13 @@ ednio.get(":world.animals/cats").done(function(data) {
 });
 ``` 
 
+You can pass a second param to get which is an edn path into the form e.g.
+```
+ednio.get(":world.animals/cats", ":jungle 2 :name").done(function(data) {
+    #data will just be the name of the third jungle cat e.g. puma
+});
+```
+
 Key is handled as above and returned object is jquery ajax promise.
 
 ```
