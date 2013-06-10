@@ -1,4 +1,4 @@
-if not jsedn then jsedn = require "jsedn"
+if not jsedn then `jsedn = require("jsedn")`
 module.exports =
     _kwParts: (kw) ->
         parts = kw.replace(/\:/g, "").split "/"
