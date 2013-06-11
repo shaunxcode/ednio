@@ -28,7 +28,7 @@
       var namespace, value, _ref;
 
       _ref = this._kwParts(kw), namespace = _ref.namespace, value = _ref.value;
-      return "http://" + (namespace || "www") + ".edn.io/:" + value;
+      return "http://" + (namespace ? "" + namespace + "." : "") + "edn.io/:" + value;
     },
     get: function(key, path) {
       return $.ajax({
@@ -43,6 +43,7 @@
       });
     },
     set: function(key, value) {
+      jsedn.parse(value);
       return $.ajax({
         type: "POST",
         url: this._kwUrl(key),

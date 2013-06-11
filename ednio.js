@@ -1431,7 +1431,7 @@ require.register("ednio/index.js", function(exports, require, module){
       var namespace, value, _ref;
 
       _ref = this._kwParts(kw), namespace = _ref.namespace, value = _ref.value;
-      return "http://" + (namespace || "www") + ".edn.io/:" + value;
+      return "http://" + (namespace ? "" + namespace + "." : "") + "edn.io/:" + value;
     },
     get: function(key, path) {
       return $.ajax({
@@ -1446,6 +1446,7 @@ require.register("ednio/index.js", function(exports, require, module){
       });
     },
     set: function(key, value) {
+      jsedn.parse(value);
       return $.ajax({
         type: "POST",
         url: this._kwUrl(key),

@@ -2,7 +2,7 @@
   "name": "ednio",
   "repo": "shaunxcode/ednio",
   "description": "edn service wrapper",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "keywords": ["edn"], 
   "dependencies": {
     "shaunxcode/jsedn": "*"

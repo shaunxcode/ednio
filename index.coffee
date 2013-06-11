@@ -12,7 +12,7 @@ module.exports =
 
     _kwUrl: (kw) -> 
         {namespace, value} = @_kwParts kw
-        "http://#{namespace or "www"}.edn.io/:#{value}"
+        "http://#{if namespace then "#{namespace}." else ""}edn.io/:#{value}"
             
     get: (key, path) -> 
         $.ajax
@@ -22,6 +22,7 @@ module.exports =
             dataFilter: (data) -> jsedn.parse data 
             
     set: (key, value) -> 
+        jsedn.parse value
         $.ajax
             type: "POST"
             url: @_kwUrl key
